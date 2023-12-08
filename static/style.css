@@ -1,0 +1,50 @@
+body {
+    /*background-image: linear-gradient(218deg, rgba(255,106,149,1) 10%, rgba(255,139,169,1) 35%, rgba(255,203,219,1) 100%);*/
+    background: linear-gradient(90deg, #ff6a95 0%, #ff8ba9 0%, #ffcbdb 100%);
+}
+
+.pink {
+    background-color: #ff8ba9;
+}
+
+a {
+    text-decoration-line: none;
+    color:white
+}
+
+a:hover{
+    color:white;
+}
+
+
+  .custom-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra do card */
+    background-color: #ffffff; /* Fundo branco do card */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #hello_kitty {
+    background-color: #ffcbdb;
+    background-image: url(../static/img/hellokitty.svg);
+  }
+
+
+
+body {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.custom-card {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+#user-image {
+  border: none;
+  border-radius: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}

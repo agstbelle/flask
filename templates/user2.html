@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <body id="hello_kitty">
+        <div class="custom-card">
+            <h2 class="mb-6">Informações do usuário</h2>
+
+            <div class="row">
+              <div class="col-6">
+                <img id="user-image" src="https://suap.ifrn.edu.br{{ user_data['url_foto_150x200'] }}" class="rounded-circle mb-4 justify-content-end" alt="...">
+              </div>
+              <div class="col-6">
+                <h2>{{ user_data['nome_usual'] }}</h2>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-12">
+                <div class="mx-auto">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Campo</th>
+                        <th>Dados</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for field in user_data %}
+                        <tr>
+                          <td>{{ field }}</td>
+                          <td>{{ user_data[field] }}</td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+       
+  
+              
+    </body>
+
+{%endblock%}
