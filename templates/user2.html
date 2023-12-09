@@ -1,45 +1,93 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <body id="hello_kitty">
-        <div class="custom-card">
-            <h2 class="mb-6">Informações do usuário</h2>
+<body id="hello_kitty">
+  <div class="custom-card">
+    <div class="row">
+    <h2 class="mb-6">Informações do usuário</h2>
+    <a id="logout" class="btn-primary ms-auto" href="{{url_for('logout')}}">Logout</a>
+    </div>
 
-            <div class="row">
-              <div class="col-6">
-                <img id="user-image" src="https://suap.ifrn.edu.br{{ user_data['url_foto_150x200'] }}" class="rounded-circle mb-4 justify-content-end" alt="...">
-              </div>
-              <div class="col-6">
-                <h2>{{ user_data['nome_usual'] }}</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://suap.ifrn.edu.br{{ user_data['url_foto_150x200'] }}" class="img-fluid rounded-start"
+                alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"> Olá,{{ user_data['nome_usual'] }}! Selecione o ano para ter acesso ao boletim
+                </h5>
+                <form action="{{ url_for('boletim') }}" method="post">
+                  <div class="mb-3">
+                    <div class="input-group">
+                      <select class="form-select form-select-lg" name="ano">
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023" selected>2023</option>
+                      </select>
+                      <button type="submit" class="btn btn-primary ms-2">Enviar</button>
+
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
-            
-            <div class="row">
-              <div class="col-md-12">
-                <div class="mx-auto">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Campo</th>
-                        <th>Dados</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% for field in user_data %}
-                        <tr>
-                          <td>{{ field }}</td>
-                          <td>{{ user_data[field] }}</td>
-                        </tr>
-                      {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
-       
-  
-              
-    </body>
+      </div>
+      <!--<div class="col-6">
+                <h2></h2>
+              </div>
+            </div>-->
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mx-auto">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" colspan="2">
+                  <h2>Dados Gerais</h2>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for field in user_data %}
+              {% if field not in ['url_foto_75x100', 'url_foto_150x200'] %}
+              {% if field != 'vinculo' %}
+              <tr>
+                <td id="field" class="text-start fw-bold">{{ field }}</td>
+                <td class="text-start ">{{ user_data[field] }}</td>
+              </tr>
+              {% else %}
+              {% for subfield, subvalue in user_data['vinculo'].items() %}
+              <tr>
+                <td id="field" class="text-start fw-bold">{{ subfield }}</td>
+                <td class="text-start">{{ subvalue }}</td>
+              </tr>
+              {% endfor %}
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
+
+
+
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+
+
+</body>
 
 {%endblock%}

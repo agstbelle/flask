@@ -3,6 +3,10 @@ body {
     background: linear-gradient(90deg, #ff6a95 0%, #ff8ba9 0%, #ffcbdb 100%);
 }
 
+#field {
+  font-weight: bolder;
+}
+
 .pink {
     background-color: #ff8ba9;
 }
@@ -27,7 +31,10 @@ a:hover{
   #hello_kitty {
     background-color: #ffcbdb;
     background-image: url(../static/img/hellokitty.svg);
+    margin-bottom: 50px;
   }
+
+  
 
 
 
@@ -47,4 +54,57 @@ body {
   object-fit: cover;
   width: 200px;
   height: 200px;
+}
+
+select.form-select {
+  padding: 10px; 
+  border: 1px solid #ff8ba9; 
+  border-radius: 10px; 
+  background-color: #fd88afa1; 
+  color: #ffffff; 
+  cursor: pointer; 
+  outline: none; 
+  margin-right: 5px;
+}
+
+select.form-select option {
+  padding: 10px; 
+  background-color: #fce4ec; 
+  color: #ff239c; 
+}
+
+button.btn.btn-primary {
+  padding: 10px; 
+  border: 1px solid #ff8ba9; 
+  border-radius: 10px; 
+  background-color: #fd88afa1; 
+  color: #ffffff; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+}
+
+
+button.btn.btn-primary:hover {
+  background-color: #ff239c; 
+}
+
+a.btn-primary {
+  padding: 10px;
+  border: 1px solid #ff8ba9;
+  border-radius: 10px;
+  background-color: #fd88afa1;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+a.btn-primary:hover {
+  background-color: #ff239c;
+  color: #ffffff;
+}
+
+#logout {
+  margin-left: 25%;
+  margin-bottom: 5px;
 }
